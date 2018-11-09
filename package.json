@@ -1,10 +1,13 @@
 {
-    "name": "reaction-payment-bolt",
-    "version": "0.1.0",
-    "description": "This is a plugin to add Bolt (https://bolt.com/) as a payment platform to your reaction commerce website.",
-    "main": "register.js",
-    "keywords": ["bolt", "bolt.com", "reaction commerce"],
-    "author": "@fabien_huet",
-    "license": "ISC"
-  }
-  
+  "name": "reaction-payment-bolt",
+  "version": "0.1.0",
+  "description": "This is a plugin to add Bolt (https://bolt.com/) as a payment platform to your reaction commerce website.",
+  "main": "register.js",
+  "keywords": [
+    "bolt",
+    "bolt.com",
+    "reaction commerce"
+  ],
+  "author": "@fabien_huet",
+  "license": "ISC"
+}

@@ -1,8 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Components } from "@reactioncommerce/reaction-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  replaceComponent,
+  Components
+} from '/imports/plugins/core/components/lib';
 
-const CartDrawer = ({ productItems, pdpPath, handleRemoveItem, handleCheckout, handleImage, handleShowProduct }) => (
+const CartDrawer = ({
+  productItems,
+  pdpPath,
+  handleRemoveItem,
+  handleCheckout,
+  handleImage,
+  handleShowProduct
+}) => (
   <div>
     <div className="cart-drawer-swiper-container">
       <div className="cart-drawer-swiper-wrapper">
@@ -23,13 +33,13 @@ const CartDrawer = ({ productItems, pdpPath, handleRemoveItem, handleCheckout, h
       </div>
     </div>
     <div className="cart-drawer-pagination" />
-    <div>There will be bolt</div>
+    <div>rr</div>
     <div className="row">
       <Components.Button
         bezelStyle="solid"
         className={{
-          "btn-lg": true,
-          "btn-block": true
+          'btn-lg': true,
+          'btn-block': true
         }}
         status="cta"
         id="btn-checkout"
@@ -50,4 +60,4 @@ CartDrawer.propTypes = {
   productItems: PropTypes.array
 };
 
-export default CartDrawer;
+replaceComponent('CartDrawer', CartDrawer);

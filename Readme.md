@@ -39,5 +39,3 @@ Go to your bolt account settings : <https://merchant-sandbox.bolt.com/settings> 
 - Card number: 4111 1111 1111 3000
 - Expiration: Any future month/year
 - CVV: Any 3 digits
-
-106 Spring St, New York, NY 10012, États-Unis
