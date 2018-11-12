@@ -8,9 +8,9 @@ A "Chekout with Bolt" button is added to the mini-cart view and the user can swi
 
 ## Install the plugin
 
-You have to get the code from this repo to your project in `imports/plugins/custom/payment-bolt`. You can download this repo or clone it to get the updates easier with:
+You have to get the code from this repo to your project in `imports/plugins/custom/payments-bolt`. You can download this repo or clone it to get the updates easier with:
 
-    git clone https://github.com/fabien-h/reaction-payment-bolt.git imports/plugins/custom/payment-bolt
+    git clone https://github.com/fabien-h/reaction-payments-bolt.git imports/plugins/custom/payments-bolt
 
 Then you have to restart reaction
 

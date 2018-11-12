@@ -1,5 +1,5 @@
 {
-  "name": "reaction-payment-bolt",
+  "name": "reaction-payments-bolt",
   "version": "0.1.0",
   "description": "This is a plugin to add Bolt (https://bolt.com/) as a payment platform to your reaction commerce website.",
   "main": "register.js",

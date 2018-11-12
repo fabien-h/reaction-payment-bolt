@@ -1,0 +1,27 @@
+[{
+  "language": "English",
+  "i18n": "en",
+  "ns": "payments-bolt",
+  "translation": {
+    "reaction-payments": {
+      "admin": {
+        "shortcut": {
+          "examplePaymentProviderLabel": "Bolt Payment",
+          "examplePaymentProviderTitle": "Bolt Payment"
+        },
+        "dashboard": {
+          "examplePaymentProviderLabel": "Bolt Payment",
+          "examplePaymentProviderTitle": "Bolt Payment",
+          "examplePaymentProviderDescription": "Bolt Payment Method"
+        },
+        "paymentSettings": {
+          "examplePaymentLabel": "Bolt",
+          "examplePaymentSettingsLabel": "Bolt Payment",
+          "exampleCredentials": "This is an example payment method setting.",
+          "apiClientId": "API Client ID",
+          "supportedMethodsLabel": "Payment provider supported methods"
+        }
+      }
+    }
+  }
+}]
