@@ -4,46 +4,64 @@ import { composeWithTracker } from "/imports/plugins/core/components/lib";
 import { Meteor } from "meteor/meteor";
 import { Packages } from "/lib/collections";
 import { Reaction, i18next } from "/client/api";
-import SettingsForm from "./components/settingsForm";
-import "./bolt.html";
+import { TextField, Translation } from "/imports/plugins/core/ui/client/components";
+import "./boltSettings.html";
 
 class BoltSettings extends Component {
-  handleChange = (e) => {
+  constructor(props) {
+    super(props);
+    try {
+      this.state = {
+        apiKey: props.packageData.settings["payments-bolt"].apiKey || ""
+      };
+    } catch (error) {
+      this.state = {
+        apiKey: ""
+      };
+    }
+  }
+
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({ apiKey: e.target.value });
-  };
-
-  handleSubmit = (settings) => {
-    e.preventDefault();
-    const packageId = this.props.packageData._id;
-    const { settingsKey } = this.props.packageData.registry[0];
-
-    const fields = [
-      {
-        property: "apiKey",
-        value: settings.apiKey
-      },
-      {
-        property: "support",
-        value: settings.support
+    Meteor.call(
+      "registry/update",
+      this.props.packageData._id,
+      "payments-bolt",
+      [
+        {
+          property: "apiKey",
+          value: this.state.apiKey
+        }
+      ],
+      (error) => {
+        if (error) return Alerts.toast(i18next.t("admin.settings.saveFailed"), "error");
+        return Alerts.toast(i18next.t("admin.settings.saveSuccess"), "success");
       }
-    ];
-
-    this.saveUpdate(fields, packageId, settingsKey);
-  };
-
-  saveUpdate = (fields, id, settingsKey) => {
-    Meteor.call("registry/update", id, settingsKey, fields, (err) => {
-      if (err) {
-        return Alerts.toast(i18next.t("admin.settings.saveFailed"), "error");
-      }
-      return Alerts.toast(i18next.t("admin.settings.saveSuccess"), "success");
-    });
+    );
   };
 
   render() {
-    const { settingsKey } = this.props.packageData.registry[0];
-    return <SettingsForm onChange={this.handleChange} onSubmit={this.handleSubmit} settings={this.props.packageData.settings[settingsKey]} />;
+    const { apiKey } = this.state;
+
+    return (
+      <React.Fragment>
+        {!apiKey && (
+          <div className="alert alert-info">
+            <Translation defaultValue="Example Credentials" i18nKey="admin.paymentSettings.exampleCredentials" />
+          </div>
+        )}
+
+        <form onSubmit={this.handleSubmit}>
+          <TextField label="API Key" name="apiKey" type="text" value={apiKey}
+            onChange={(e, value) => this.setState({ apiKey: value })}
+          />
+
+          <button className="btn btn-primary pull-right" type="submit">
+            <Translation defaultValue="Save Changes" i18nKey="app.saveChanges" />
+          </button>
+        </form>
+      </React.Fragment>
+    );
   }
 }
 

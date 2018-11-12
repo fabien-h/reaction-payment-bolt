@@ -12,23 +12,17 @@ Reaction.registerPackage({
     resolvers,
     schemas
   },
-  paymentMethods: [{
-    name: "iou_example",
-    displayName: "IOU Example"
-  }],
+  paymentMethods: [
+    {
+      name: "iou_example",
+      displayName: "IOU Example"
+    }
+  ],
   settings: {
     "mode": false,
-    "apiKey": "",
-    "example": {
-      enabled: false
-    },
     "payments-bolt": {
       enabled: false,
-      support: [
-        "Authorize",
-        "Capture",
-        "Refund"
-      ]
+      apiKey: ""
     }
   },
   registry: [
