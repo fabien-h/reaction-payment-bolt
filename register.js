@@ -22,7 +22,9 @@ Reaction.registerPackage({
     "mode": false,
     "payments-bolt": {
       enabled: false,
-      apiKey: ""
+      apiKey: "",
+      signingSecret: "",
+      publicKey: ""
     }
   },
   registry: [
