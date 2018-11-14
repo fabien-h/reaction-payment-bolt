@@ -1,2 +1,1 @@
 import "./cartDrawerWithBolt";
-import "./settings";

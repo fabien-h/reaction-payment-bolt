@@ -7,17 +7,18 @@
       "reaction-payments": {
         "admin": {
           "shortcut": {
-            "examplePaymentProviderLabel": "Exemple de passerelle de paiement",
-            "examplePaymentProviderTitle": "Exemple de passerelle de paiement"
+            "boltProviderLabel": "Exemple de passerelle de paiement",
+            "boltProviderTitle": "Exemple de passerelle de paiement"
           },
           "dashboard": {
-            "examplePaymentProviderLabel": "Exemple de passerelle de paiement",
-            "examplePaymentProviderTitle": "Exemple de passerelle de paiement",
-            "examplePaymentProviderDescription": "Exemple de passerelle de paiement"
+            "boltProviderLabel": "Exemple de passerelle de paiement",
+            "boltProviderTitle": "Exemple de passerelle de paiement",
+            "boltProviderDescription": "Exemple de passerelle de paiement"
           },
           "paymentSettings": {
             "apiKeyNeeded": "Il vous faut une API Key, un Signing Secret et une Publishable Key pour démarrer avec Bolt.",
             "apiKeyLabel": "API Key",
+            "boltOnly": "Bolt uniquement (cacher les autres moyens de paiment).",
             "signingSecretLabel": "Signing Secret",
             "publicKeyLabel": "Publishable Key"
           }

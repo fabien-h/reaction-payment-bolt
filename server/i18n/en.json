@@ -7,17 +7,18 @@
       "reaction-payments": {
         "admin": {
           "shortcut": {
-            "examplePaymentProviderLabel": "Bolt Payment",
-            "examplePaymentProviderTitle": "Bolt Payment"
+            "boltProviderLabel": "Bolt Payment",
+            "boltProviderTitle": "Bolt Payment"
           },
           "dashboard": {
-            "examplePaymentProviderLabel": "Bolt Payment",
-            "examplePaymentProviderTitle": "Bolt Payment",
-            "examplePaymentProviderDescription": "Bolt Payment Method"
+            "boltProviderLabel": "Bolt Payment",
+            "boltProviderTitle": "Bolt Payment",
+            "boltProviderDescription": "Bolt Payment Method"
           },
           "paymentSettings": {
             "apiKeyNeeded": "You need an API Key, a Signing Secret and a Publishable Key to get started with Bolt.",
             "apiKeyLabel": "API Key",
+            "boltOnly": "Bolt only (hide other payments).",
             "signingSecretLabel": "Signing Secret",
             "publicKeyLabel": "Publishable Key"
           }

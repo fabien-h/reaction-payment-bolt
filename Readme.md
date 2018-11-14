@@ -4,7 +4,7 @@ This is a plugin to add [Bolt](https://bolt.com/) as a payment platform to your 
 
 ## How does it work?
 
-A "Chekout with Bolt" button is added to the mini-cart view and the user can switch to the faster Bolt chekout experience instead of the reaction commerce chekout process. You can choose to have only the Bolt or to also keep the reaction process. It can be useful if you want to keep using paypal ofr example.
+"Chekout with Bolt" button is added to the mini-cart view and the user can switch to the faster Bolt chekout experience instead of the reaction commerce chekout process. You can choose to have only the Bolt or to also keep the reaction process. It can be useful if you want to keep using paypal for example.
 
 ## Install the plugin
 
