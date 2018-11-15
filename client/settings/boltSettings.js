@@ -13,45 +13,38 @@ class BoltSettings extends Component {
 
     try {
       this.state = {
-        apiKey: props.packageData.settings["payments-bolt"].apiKey || "",
-        signingSecret: props.packageData.settings["payments-bolt"].signingSecret || "",
-        publicKey: props.packageData.settings["payments-bolt"].publicKey || "",
-        boltOnly: props.packageData.settings["payments-bolt"].boltOnly || false
+        apiKey: props.packageData.settings.apiKey || "",
+        boltOnly: props.packageData.settings.boltOnly || false,
+        enabled: props.packageData.settings.enabled || false,
+        publicKey: props.packageData.settings.publicKey || "",
+        signingSecret: props.packageData.settings.signingSecret || ""
       };
     } catch (error) {
       this.state = {
         apiKey: "",
-        signingSecret: "",
+        boltOnly: false,
+        enabled: false,
         publicKey: "",
-        boltOnly: false
+        signingSecret: ""
       };
     }
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
+
     Meteor.call(
-      "registry/update",
-      this.props.packageData._id,
-      "payments-bolt",
-      [
-        {
-          property: "apiKey",
-          value: this.state.apiKey
-        },
-        {
-          property: "signingSecret",
-          value: this.state.signingSecret
-        },
-        {
-          property: "publicKey",
-          value: this.state.publicKey
-        },
-        {
-          property: "boltOnly",
-          value: this.state.boltOnly
+      "/Packages/update",
+      { _id: this.props.packageData._id },
+      {
+        $set: {
+          "settings.apiKey": this.state.apiKey,
+          "settings.boltOnly": this.state.boltOnly,
+          "settings.enabled": this.state.enabled,
+          "settings.publicKey": this.state.publicKey,
+          "settings.signingSecret": this.state.signingSecret
         }
-      ],
+      },
       (error) => {
         if (error) return Alerts.toast(i18next.t("admin.settings.saveFailed"), "error");
         return Alerts.toast(i18next.t("admin.settings.saveSuccess"), "success");
@@ -60,45 +53,51 @@ class BoltSettings extends Component {
   };
 
   render() {
-    const { apiKey, boltOnly, signingSecret, publicKey } = this.state;
+    const { apiKey, boltOnly, enabled, publicKey, signingSecret } = this.state;
 
     return (
-      <React.Fragment>
+      <form onSubmit={this.handleSubmit}>
+        <div className="rui list-group">
+          <div className="rui list-group-item" role="button" tabIndex="0">
+            <div className="rui list-item-content">
+              <Translation defaultValue="Bolt enabled" i18nKey="admin.paymentSettings.boltEnabled" />
+            </div>
+            <div className="rui list-item-action">
+              <Switch name="enabled" checked={enabled} onChange={(e, value) => this.setState({ enabled: value })} />
+            </div>
+          </div>
+        </div>
+
         {(!apiKey || !signingSecret || !publicKey) && (
           <div className="alert alert-danger">
             <Translation defaultValue="You need an API Key, a Signing Secret and a Publishable Key." i18nKey="admin.paymentSettings.apiKeyNeeded" />
           </div>
         )}
 
-        <form onSubmit={this.handleSubmit}>
-          <Translation defaultValue="API Key" i18nKey="admin.paymentSettings.apiKeyLabel" />
-          <TextField name="apiKey" type="text" value={apiKey} onChange={(e, value) => this.setState({ apiKey: value })} />
+        <Translation defaultValue="API Key" i18nKey="admin.paymentSettings.apiKeyLabel" />
+        <TextField name="apiKey" type="text" value={apiKey} onChange={(e, value) => this.setState({ apiKey: value })} />
 
-          <Translation defaultValue="Signing Secret" i18nKey="admin.paymentSettings.signingSecretLabel" />
-          <TextField name="signingSecret" type="text" value={signingSecret} onChange={(e, value) => this.setState({ signingSecret: value })} />
+        <Translation defaultValue="Signing Secret" i18nKey="admin.paymentSettings.signingSecretLabel" />
+        <TextField name="signingSecret" type="text" value={signingSecret} onChange={(e, value) => this.setState({ signingSecret: value })} />
 
-          <Translation defaultValue="Publishable Key" i18nKey="admin.paymentSettings.publicKeyLabel" />
-          <TextField name="publicKey" type="text" value={publicKey} onChange={(e, value) => this.setState({ publicKey: value })} />
+        <Translation defaultValue="Publishable Key" i18nKey="admin.paymentSettings.publicKeyLabel" />
+        <TextField name="publicKey" type="text" value={publicKey} onChange={(e, value) => this.setState({ publicKey: value })} />
 
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div style={{ flexShrink: 0, marginRight: 10 }}>
-              <Switch
-                name="boltOnly"
-                checked={boltOnly}
-                onChange={(e, value) => {
-                  console.log(value);
-                  this.setState({ boltOnly: value });
-                }}
-              />
+        <div className="rui list-group">
+          <div className="rui list-group-item" role="button" tabIndex="0">
+            <div className="rui list-item-content">
+              <Translation defaultValue="Bolt only (hide other payments)." i18nKey="admin.paymentSettings.boltOnly" />
             </div>
-            <Translation defaultValue="Bolt only (hide other payments)." i18nKey="admin.paymentSettings.boltOnly" />
+            <div className="rui list-item-action">
+              <Switch name="boltOnly" checked={boltOnly} onChange={(e, value) => this.setState({ boltOnly: value })} />
+            </div>
           </div>
+        </div>
 
-          <button className="btn btn-primary pull-right" type="submit">
-            <Translation defaultValue="Save Changes" i18nKey="app.saveChanges" />
-          </button>
-        </form>
-      </React.Fragment>
+        <button className="btn btn-primary pull-right" type="submit">
+          <Translation defaultValue="Save Changes" i18nKey="app.saveChanges" />
+        </button>
+      </form>
     );
   }
 }

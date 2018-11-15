@@ -7,7 +7,6 @@ import { replaceComponent, Components, composeWithTracker } from "/imports/plugi
 
 const CartDrawer = ({ productItems, pdpPath, handleRemoveItem, handleCheckout, handleImage, handleShowProduct, packageData }) => (
   <div>
-    {console.log(packageData.settings["payments-bolt"])}
     <div className="cart-drawer-swiper-container">
       <div className="cart-drawer-swiper-wrapper">
         <div className="cart-drawer-swiper-slide">
@@ -27,7 +26,7 @@ const CartDrawer = ({ productItems, pdpPath, handleRemoveItem, handleCheckout, h
       </div>
     </div>
     <div className="cart-drawer-pagination" />
-    {packageData.settings["payments-bolt"].enabled && <div>There will be bolt</div>}
+    {packageData.settings.enabled && <div>There will be bolt</div>}
     <div className="row">
       <Components.Button
         bezelStyle="solid"

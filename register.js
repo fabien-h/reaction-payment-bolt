@@ -7,27 +7,21 @@ Reaction.registerPackage({
   label: "BoltPayment",
   name: "payments-bolt",
   icon: "fa fa-bolt",
-  autoEnable: true,
   graphQL: {
     resolvers,
     schemas
   },
   settings: {
-    "mode": false,
-    "payments-bolt": {
-      enabled: false,
-      apiKey: "",
-      signingSecret: "",
-      publicKey: "",
-      boltOnly: false
-    }
+    apiKey: "",
+    boltOnly: false,
+    enabled: false,
+    publicKey: "",
+    signingSecret: ""
   },
   registry: [
-    // Settings panel
     {
       label: "Bolt",
       provides: ["paymentSettings"],
-      container: "dashboard",
       template: "boltSettings"
     }
   ]

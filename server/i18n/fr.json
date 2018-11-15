@@ -18,6 +18,7 @@
           "paymentSettings": {
             "apiKeyNeeded": "Il vous faut une API Key, un Signing Secret et une Publishable Key pour démarrer avec Bolt.",
             "apiKeyLabel": "API Key",
+            "boltEnabled": "Bolt activé",
             "boltOnly": "Bolt uniquement (cacher les autres moyens de paiment).",
             "signingSecretLabel": "Signing Secret",
             "publicKeyLabel": "Publishable Key"
