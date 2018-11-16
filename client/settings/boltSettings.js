@@ -14,9 +14,10 @@ class BoltSettings extends Component {
     try {
       this.state = {
         apiKey: props.packageData.settings.apiKey || "",
-        boltOnly: props.packageData.settings.boltOnly || false,
-        enabled: props.packageData.settings.enabled || false,
-        publicKey: props.packageData.settings.publicKey || "",
+        boltOnly: props.packageData.settings.public.boltOnly || false,
+        enabled: props.packageData.settings.public.enabled || false,
+        productionMode: props.packageData.settings.public.productionMode || false,
+        publicKey: props.packageData.settings.public.publicKey || "",
         signingSecret: props.packageData.settings.signingSecret || ""
       };
     } catch (error) {
@@ -24,6 +25,7 @@ class BoltSettings extends Component {
         apiKey: "",
         boltOnly: false,
         enabled: false,
+        productionMode: false,
         publicKey: "",
         signingSecret: ""
       };
@@ -39,9 +41,10 @@ class BoltSettings extends Component {
       {
         $set: {
           "settings.apiKey": this.state.apiKey,
-          "settings.boltOnly": this.state.boltOnly,
-          "settings.enabled": this.state.enabled,
-          "settings.publicKey": this.state.publicKey,
+          "settings.public.boltOnly": this.state.boltOnly,
+          "settings.public.enabled": this.state.enabled,
+          "settings.public.productionMode": this.state.productionMode,
+          "settings.public.publicKey": this.state.publicKey,
           "settings.signingSecret": this.state.signingSecret
         }
       },
@@ -53,7 +56,7 @@ class BoltSettings extends Component {
   };
 
   render() {
-    const { apiKey, boltOnly, enabled, publicKey, signingSecret } = this.state;
+    const { apiKey, boltOnly, enabled, productionMode, publicKey, signingSecret } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -82,6 +85,20 @@ class BoltSettings extends Component {
 
         <Translation defaultValue="Publishable Key" i18nKey="admin.paymentSettings.publicKeyLabel" />
         <TextField name="publicKey" type="text" value={publicKey} onChange={(e, value) => this.setState({ publicKey: value })} />
+
+        <div className="rui list-group">
+          <div className="rui list-group-item" role="button" tabIndex="0">
+            <div className="rui list-item-content">
+              <Translation
+                defaultValue="Production mode activated (Bolt is in sandbox mode as long as this is not checked)."
+                i18nKey="admin.paymentSettings.productionMode"
+              />
+            </div>
+            <div className="rui list-item-action">
+              <Switch name="productionMode" checked={productionMode} onChange={(e, value) => this.setState({ productionMode: value })} />
+            </div>
+          </div>
+        </div>
 
         <div className="rui list-group">
           <div className="rui list-group-item" role="button" tabIndex="0">

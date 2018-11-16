@@ -21,6 +21,7 @@
             "boltEnabled": "Bolt activé",
             "boltOnly": "Bolt uniquement (cacher les autres moyens de paiment).",
             "signingSecretLabel": "Signing Secret",
+            "productionMode": "Mode production activé (Bolt reste en monde test tant que ce mode n'est pas activé).",
             "publicKeyLabel": "Publishable Key"
           }
         }

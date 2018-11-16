@@ -1,1 +1,2 @@
 import "./cartDrawerWithBolt";
+import "./cartPanelWithBolt";

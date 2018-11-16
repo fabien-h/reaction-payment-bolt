@@ -21,6 +21,7 @@
             "boltEnabled": "Bolt enabled",
             "boltOnly": "Bolt only (hide other payments).",
             "signingSecretLabel": "Signing Secret",
+            "productionMode": "Production mode activated (Bolt is in sandbox mode as long as this is not checked).",
             "publicKeyLabel": "Publishable Key"
           }
         }

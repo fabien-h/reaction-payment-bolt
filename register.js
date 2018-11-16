@@ -13,10 +13,13 @@ Reaction.registerPackage({
   },
   settings: {
     apiKey: "",
-    boltOnly: false,
-    enabled: false,
-    publicKey: "",
-    signingSecret: ""
+    signingSecret: "",
+    public: {
+      boltOnly: false,
+      enabled: false,
+      productionMode: false,
+      publicKey: ""
+    }
   },
   registry: [
     {
