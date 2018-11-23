@@ -1,0 +1,29 @@
+{
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "[html]": {
+      "editor.formatOnSave": false
+    },
+    "[typescript]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnPaste": true
+    },
+    "tslint.configFile": "tslint.json",
+    "prettier.singleQuote": true,
+    "search.exclude": {
+      "**/.git": true,
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/tmp": true,
+      "**/.meteor/**": true,
+      "**/.reaction/**": true
+    },
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "files.watcherExclude": {
+      "**/node_modules": true,
+      "**/.meteor/**": true,
+      "**/.reaction/**": true
+    }
+  }
+  

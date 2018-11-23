@@ -27,6 +27,7 @@ The easiest way to expose your machine is to use [ngrok](https://ngrok.com/).
 - Create an account here : <https://dashboard.ngrok.com/user/signup>.
 - Get your token here : <https://dashboard.ngrok.com/auth> for the ngrokToken.
 - (optionnal) Get a payed account to have a reserved address, go to <https://dashboard.ngrok.com/reserved> and setup a domain name (like `your-bolt-local-test-server.ngrok.io`) for the ngrokURL.
+- Connect you account with `./ngrok authtoken __NGROK_TOKEN__`
 - Start ngrok with something like `./ngrok http 3000 -subdomain=your-bolt-local-test-server.ngrok.io`.
 - You can now inspect the incoming connections on <http://127.0.0.1:4040/inspect/http>
 
