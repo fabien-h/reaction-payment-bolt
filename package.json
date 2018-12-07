@@ -9,5 +9,8 @@
     "reaction commerce"
   ],
   "author": "@fabien_huet",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "boltpay": "^0.1.0"
+  }
 }
